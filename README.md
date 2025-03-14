@@ -5,12 +5,12 @@ Includes database creation, deletion, fetching rows, modifying rows, etc.
 All the Relational Database Management Systems (RDMS) -
 MySQL, MS Access, Oracle, Sybase, Informix, Postgres and SQL Server use SQL as their standard database language. 
 ### advantages: 
- Allows users to access data in the relational database management systems. 
- Allows users to describe the data. 
- Allows users to define the data in a database and manipulate that data. 
- Allows to embed within other languages using SQL modules, libraries & 
+Allows users to access data in the relational database management systems. 
+Allows users to describe the data. 
+Allows users to define the data in a database and manipulate that data. 
+Allows to embed within other languages using SQL modules, libraries & 
 pre-compilers. 
- Allows users to create and drop databases and tables. 
- Allows users to create view, stored procedure, functions in a database. 
- Allows users to set permissions on tables, procedures and views. 
+Allows users to create and drop databases and tables. 
+Allows users to create view, stored procedure, functions in a database. 
+Allows users to set permissions on tables, procedures and views. 
 
