@@ -207,3 +207,29 @@ MIN(AMOUNT_SOLD) AS min_purchase_amount
 FROM SH.SALES
 GROUP BY CUST_ID; 
 -- This query finds the minimum (MIN) purchase amount for each customer.
+
+--Oracle SQL Analytical and Window Function Queries for Employee Table
+
+-- 7. Find the top 3 highest-paid employees in each department.
+-- Uses RANK() to rank employees based on salary and filters top 3.
+SELECT department_id, employee_id, salary
+FROM(
+    SELECT department_id, employee_id, salary,
+           RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS salary_rank
+    FROM hr.employees
+) WHERE salary_rank <=3;
+
+-- 8. Identify the second highest salary in each department using DENSE_RANK().
+-- Uses DENSE_RANK() to identify employees with the second-highest salary per department.
+SELECT department_id, employee_id, salary
+FROM(
+    SELECT department_id, employee_id, salary,
+           RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS salary_rank
+    FROM hr.employees
+) WHERE salary_rank =2;
+
+-- 20. Rank employees within their department based on experience.
+-- Uses RANK() to order employees by hire date per department.
+    SELECT department_id, employee_id, HIRE_DATE,
+           RANK() OVER (PARTITION BY department_id ORDER BY HIRE_DATE ASC) AS experience_rank
+    FROM hr.employees
