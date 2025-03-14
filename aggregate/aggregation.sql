@@ -1,7 +1,7 @@
 -- 1. Count the number of employees in each department
 -- This query groups employees by department_id and counts how many employees exist in each.
 SELECT department_id, COUNT(*) AS total_employees
-FROM hr.EMPLOYEES
+FROM HR.EMPLOYEES
 GROUP BY department_id;
 
 --2. Find the average salary in each department
@@ -74,7 +74,7 @@ ORDER BY hire_year;
 SELECT d.location_id,
 SUM(e.salary) AS total_salary
 FROM HR.EMPLOYEES e
-JOIN departments d ON e.department_id = d.department_id
+JOIN hr.departments d ON e.department_id = d.department_id
 GROUP BY d.location_id;
 
 -- 12. Find the number of employees in each manager's team
@@ -133,8 +133,8 @@ FETCH FIRST 1 ROW ONLY;
 SELECT l.city,
 COUNT(*) AS total_employees
 FROM HR.EMPLOYEES e
-JOIN departments d ON e.department_id = d.department_id
-JOIN locations l ON d.location_id = l.location_id
+JOIN hr.departments d ON e.department_id = d.department_id
+JOIN hr.locations l ON d.location_id = l.location_id
 GROUP BY l.city;
 
 -- 19. Find the number of employees who have a commission, grouped by department
@@ -152,3 +152,4 @@ SUM(salary) AS total_salary_with_commission
 FROM HR.EMPLOYEES
 WHERE COMMISSION_PCT IS NOT NULL
 GROUP BY DEPARTMENT_ID;
+
